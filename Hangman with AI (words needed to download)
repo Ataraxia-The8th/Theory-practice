@@ -1,0 +1,46 @@
+import random
+import string
+from words import words
+
+def get_valid_word(words):
+    word = random.choice(words)
+    while '-' in word or ' ' in word:
+        word = random.choice(words)
+
+    return word.upper() 
+    #previous, return(word). Wrong as because its (), not suppose to be a string, .upper is added so the the letters in the chosen word will be all uppercase thereby removing the problem of not changing the hyphens
+
+def hangman():
+    word = get_valid_word(words)
+    word_letters = set(word)
+    alphabet = set(string.ascii_letters)
+    used_letters = set()
+    lives = 9
+
+    while len(word_letters) > 0 and lives > 0: #say word picked is 'art', length of word = 2 (0 1 2), hence greater than 0 and would loop this defination
+        print('You have used these letters: ', ' '.join(used_letters))
+
+        word_list = [letter if letter in used_letters else '-' for letter in word]
+        print('Current word: ', ' '.join(word_list))
+        user_letter = input("Enter your guess: ").upper()
+        if user_letter in alphabet - used_letters: #a valid character in the alphabet that I havent used yet. So the minus acts as a strike off word
+            used_letters.add(user_letter) #remembers the inputs
+            if user_letter in word_letters:
+                word_letters.remove(user_letter) #Picked word gets decreased in size
+
+            else:
+                lives = lives - 1
+                print("Your chosen letter is not in the word")
+                print("You have " +str(lives)+ " left")
+
+        elif user_letter in used_letters:
+            print("You have already used this letter!")
+        else:
+            print("Invalid character")
+
+    if lives == 0:
+        print("You lost... The word was " +word+ "")
+    else:
+        print("You won! The word was " +word+ "")
+
+hangman()
