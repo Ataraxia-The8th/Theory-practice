@@ -1,0 +1,12 @@
+#fizzbuzz, for every multiple of 3 = 'fizz', multiple of 5 = 'buzz'
+#a very simple challenge
+
+for i in range(1,101):
+    if i%3 == 0:
+         print('fizz')
+    elif i%5 == 0:
+        print('buzz')
+    else:
+         print(i)
+
+#take a step further where i='fizzbuzz' if integer divisible by both 3 and 5
