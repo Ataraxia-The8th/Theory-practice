@@ -1,0 +1,17 @@
+#two sums, guided
+def twosums(nums: list[int], target: int) -> list[int]:
+    for i in range(len(nums)):
+        for j in range(i + 1, len(nums)):
+            if nums[j] == target - nums[i]:
+                return[i, j]
+
+nums = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+target = int(4)
+x = twosums(nums, target)
+print(x)
+
+
+#Limitations is that it can only do the maximum value of sum within that list. In this case, 19.
+#It prints indexes of the numbers, I should learn how to code in such a way it allows the numbers to be seen instead
+
+
