@@ -10,3 +10,19 @@ for i in range(1,101):
          print(i)
 
 #take a step further where i='fizzbuzz' if integer divisible by both 3 and 5
+#one step further, using fibonacci sequence, print out multiples of 3 or 5 only, if both, print 'fizzbuzz'
+
+def fib_seq(limit):
+    a, b = 0, 1
+    while a < limit: 
+    #a < limit, the while loop continues. When a new 'a' is being ammended, it needs to be lower than the limit for the value to be stored.
+        yield a
+        a, b = b, a+b
+
+x = fib_seq(100000000)
+
+for y in x:
+    if y % 15 == 0:
+        print('fizz')
+    elif y % 3 == 0 or y % 5 == 0 and y > 0:
+        print(y)
