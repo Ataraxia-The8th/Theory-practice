@@ -1,0 +1,22 @@
+#Ask the user for a number. Depending on whether the number is even or odd, print out an appropriate message to the user.\
+#Extra: if multiple of 4, print different message.
+#Extra 2: Ask user to input 2 numbers and check if the numbers are divisible
+num = int(input('Enter a number and we\'ll check if its even or odd. '))
+x = num
+if x%4 == 0:
+    print('This is four me to know!')
+elif x%2 == 0:
+    print('Its even!')
+else:
+    print('Its odd!')
+
+def check(z, y):
+    if y%z == 0:
+        print('It is a multiple!!')
+    else:
+        print('Sad its not a multiple :/')
+print('Pick 2 numbers and we\'ll check if its a multiple of the base')
+z = int(input('State your base number: '))
+y = int(input('state your curious number: '))
+
+check(z,y)
